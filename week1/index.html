@@ -1,1 +1,143 @@
-<h1>蔡尚峰</h1>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css" />
+  <title>WeHelp-week1</title>
+</head>
+<body>
+  <div id="page" class="page">
+    <div class="close-button-container">
+        <button id="close">X</button>
+    </div>
+    <a>Item 1</a>
+    <a>Item 2</a>
+    <a>Item 3</a>
+    <a>Item 4</a>
+  </div>
+
+  <nav>
+    <div class="title">My Website</div>
+    <div class="menu">
+      <a>Item 1</a>
+      <a>Item 2</a>
+      <a>Item 3</a>
+      <a>Item 4</a>
+    </div>
+    <div id="menu_icon" class="menu_img">
+      <img src="./images/menu.png" alt="menu" />
+    </div>
+  </nav>
+
+  <div id="header-message">
+    <p>Welcome to MyHome</p>
+  </div>
+
+  <main>
+    <div id="content-container">
+      <div class="promo-item promotion1">
+        <img src="./images/picture1.jpg" class="promo-image"></img>
+        <p>Promotion 1</p>
+      </div>
+      <div class="promo-item promotion2">
+        <img src="./images/picture1.jpg" class="promo-image"></img>
+        <p>Promotion 2</p>
+      </div>
+      <div class="promo-item promotion3">
+        <img src="./images/picture1.jpg" class="promo-image"></img>
+        <p>Promotion 3</p>
+      </div>
+      <div class="title-content title1">
+        <div class="title-image"></div>
+        <div class="star">
+          <img src="./images/star.png" />
+        </div>
+        <p>Title 1</p>
+      </div>
+      <div class="title-content title2">
+        <div class="title-image"></div>
+        <div class="star">
+          <img src="./images/star.png" />
+        </div>
+        <p>Title 2</p>
+      </div>
+      <div class="title-content title3">
+        <div class="title-image"></div>
+        <div class="star">
+          <img src="./images/star.png" />
+        </div>
+        <p>Title 3</p>
+      </div>
+      <div class="title-content title4">
+        <div class="title-image"></div>
+        <div class="star">
+          <img src="./images/star.png" />
+        </div>
+        <p>Title 4</p>
+      </div>
+      <div class="title-content title5">
+        <div class="title-image"></div>
+        <div class="star">
+          <img src="./images/star.png" />
+        </div>
+        <p>Title 5</p>
+      </div>
+      <div class="title-content title6">
+        <div class="title-image"></div>
+        <div class="star">
+          <img src="./images/star.png" />
+        </div>
+        <p>Title 6</p>
+      </div>
+      <div class="title-content title7">
+        <div class="title-image"></div>
+        <div class="star">
+          <img src="./images/star.png" />
+        </div>
+        <p>Title 7</p>
+      </div>
+      <div class="title-content title8">
+        <div class="title-image"></div>
+        <div class="star">
+          <img src="./images/star.png" />
+        </div>
+        <p>Title 8</p>
+      </div>
+      <div class="title-content title9">
+        <div class="title-image"></div>
+        <div class="star">
+          <img src="./images/star.png" />
+        </div>
+        <p>Title 9</p>
+      </div>
+      <div class="title-content title10">
+        <div class="title-image"></div>
+        <div class="star">
+          <img src="./images/star.png" />
+        </div>
+        <p>Title 10</p>
+      </div>
+    </div>
+  </main>
+  <script>
+    const page = document.querySelector("#page");
+    const closeBtn = document.getElementById("close");
+    const menuIcon = document.getElementById("menu_icon");
+
+    closeBtn.addEventListener("click", closeMenu);
+    menuIcon.addEventListener("click", openMenu);
+
+    function openMenu() {
+        page.style.width = "40%";
+        closeBtn.style.display = "block";
+    }
+
+    function closeMenu() {
+        page.style.width = "0%";
+        closeBtn.style.display = "none";
+    }
+  </script>
+</body>
+</html>
+
