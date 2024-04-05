@@ -51,7 +51,21 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    white-space: nowrap; 
+    overflow: hidden; 
 }
+
+#header-message p {
+    margin: 0;
+}
+
+
+@media screen and (max-width: 360px) {
+    #header-message p {
+        font-size: 14px; 
+    }
+}
+
 
 #header-message p {
     font-size: 40px;
