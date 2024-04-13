@@ -1,22 +1,25 @@
 print("==========task1==========")
 # 定義捷運站和消息字典
 stations = [
-    "Songshan", 
-    "Nanjing Shanmin", 
-    "Taipei Arena", 
-    "Nanjing Fuxing", 
+    "Songshan",
+    "Nanjing Shanmin",
+    "Taipei Arena",
+    "Nanjing Fuxing",
     "Songjiang Nanjing",
-    "Zhongshan", 
-    "Beimen", 
-    "Ximen", 
-    "Xiaonanmen", 
+    "Zhongshan",
+    "Beimen",
+    "Ximen",
+    "Xiaonanmen",
     "Chiang Kai-Shek Memorial Hall",
-    "Guting", 
-    "Taipower Building", 
-    "Gongguan", "Wanlong", 
-    "Jingmei", "Dapinglin",
-    "Qizhang", "Xiaobitan", 
-    "Xindian City Hall", 
+    "Guting",
+    "Taipower Building",
+    "Gongguan",
+    "Wanlong",
+    "Jingmei",
+    "Dapinglin",
+    "Qizhang",
+    "Xiaobitan",
+    "Xindian City Hall",
     "Xindian"
 ]
 
@@ -32,7 +35,7 @@ messages = {
 def get_station(station_name):
     # 返回捷運站的索引，如果找不到，則返回None
     if station_name == "Xiaobitan":
-        return stations.index("Qizhang")
+        return stations.index(station_name)
     elif station_name in stations:
         return stations.index(station_name)
     else:
