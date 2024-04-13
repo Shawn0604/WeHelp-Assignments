@@ -32,7 +32,7 @@ const messages = {
 
 function getStationIndex(stationName) {
     if (stationName === "Xiaobitan") {
-        return stations.indexOf(stationName);
+        return stations.indexOf("Qizhang");
     } else if (stations.includes(stationName)) {
         return stations.indexOf(stationName);
     } else {
@@ -40,14 +40,13 @@ function getStationIndex(stationName) {
     }
 }
 
-
-function findAndPrint(messages,currentStation) {
+function findAndPrint(messages, currentStation) {
     const currentStationIndex = getStationIndex(currentStation);
     if (currentStationIndex === -1) {
         return null;
     }
 
-    let nearestFriends = [];
+    let nearestFriend = null;
     let minDistance = Infinity;
 
     for (const [name, message] of Object.entries(messages)) {
@@ -60,22 +59,24 @@ function findAndPrint(messages,currentStation) {
         }
 
         if (stationName !== null) {
-            const friendStationIndex =getStationIndex(stationName);
+            const friendStationIndex = getStationIndex(stationName);
             if (friendStationIndex !== -1) {
-                const distance = Math.abs(currentStationIndex-friendStationIndex);
-                if (distance<minDistance) {
+                const distance = Math.abs(currentStationIndex - friendStationIndex);
+                if (distance < minDistance) {
                     minDistance = distance;
-                    nearestFriends = [name];
-                } else if (distance === minDistance) {
-                    nearestFriends.push(name);
+                    nearestFriend = name;
                 }
             }
         }
     }
 
-    // return nearestFriends.join(" ");
-    console.log(nearestFriends.join(" "))
+    if (nearestFriend !== null) {
+        console.log(nearestFriend);
+    } else {
+        console.log("No Service");
+    }
 }
+
 
 findAndPrint(messages, "Wanlong"); // print Mary
 findAndPrint(messages, "Songshan"); // print Copper
