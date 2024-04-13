@@ -32,13 +32,14 @@ const messages = {
 
 function getStationIndex(stationName) {
     if (stationName === "Xiaobitan") {
-        return stations.indexOf("Qizhang");
+        return stations.indexOf(stationName);
     } else if (stations.includes(stationName)) {
         return stations.indexOf(stationName);
     } else {
         return -1;
     }
 }
+
 
 function findAndPrint(messages,currentStation) {
     const currentStationIndex = getStationIndex(currentStation);
