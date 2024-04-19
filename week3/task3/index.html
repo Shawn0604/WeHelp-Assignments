@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css" />
+  <title>WeHelp-week1</title>
+</head>
+<body>
+  <div id="page" class="page">
+    <div class="close-button-container">
+        <button id="close">X</button>
+    </div>
+    <a>Item 1</a>
+    <a>Item 2</a>
+    <a>Item 3</a>
+    <a>Item 4</a>
+  </div>
+
+  <nav>
+    <div class="title">My Website</div>
+    <div class="menu">
+      <a>Item 1</a>
+      <a>Item 2</a>
+      <a>Item 3</a>
+      <a>Item 4</a>
+    </div>
+    <div id="menu_icon" class="menu_img">
+      <img src="./images/menu.png" alt="menu" />
+    </div>
+  </nav>
+
+  <div id="header-message">
+    <p>Welcome to MyHome</p>
+  </div>
+  <div id="content-container">
+  <div class="content">
+    <div class="smallbox-container"></div>
+    <div class="smallbox-spacer"></div>
+    </div>
+  </div>
+  <div id="content-container">
+  <div class="content" id="bigbox-content">
+    <div class="bigbox-container"></div>
+  </div>
+  </div>
+  <!-- <div id="load-content">
+    <div class="load" id="load-more" onclick="loadMore()">
+      <p>Load More</p>
+    </div>
+  </div> -->
+</div>
+
+  <!-- <main>
+    <div id="content-container">
+      <div class="promo-item promotion1">
+        <img src="./images/picture1.jpg" class="promo-image"></img>
+        <p>Promotion 1</p>
+      </div>
+      <div class="promo-item promotion2">
+        <img src="./images/picture1.jpg" class="promo-image"></img>
+        <p>Promotion 2</p>
+      </div>
+      <div class="promo-item promotion3">
+        <img src="./images/picture1.jpg" class="promo-image"></img>
+        <p>Promotion 3</p>
+      </div>
+      <div class="title-content title1">
+        <div class="title-image"></div>
+        <div class="star">
+          <img src="./images/star.png" />
+        </div>
+        <p>Title 1</p>
+      </div>
+      <div class="title-content title2">
+        <div class="title-image"></div>
+        <div class="star">
+          <img src="./images/star.png" />
+        </div>
+        <p>Title 2</p>
+      </div>
+      <div class="title-content title3">
+        <div class="title-image"></div>
+        <div class="star">
+          <img src="./images/star.png" />
+        </div>
+        <p>Title 3</p>
+      </div>
+      <div class="title-content title4">
+        <div class="title-image"></div>
+        <div class="star">
+          <img src="./images/star.png" />
+        </div>
+        <p>Title 4</p>
+      </div>
+      <div class="title-content title5">
+        <div class="title-image"></div>
+        <div class="star">
+          <img src="./images/star.png" />
+        </div>
+        <p>Title 5</p>
+      </div>
+      <div class="title-content title6">
+        <div class="title-image"></div>
+        <div class="star">
+          <img src="./images/star.png" />
+        </div>
+        <p>Title 6</p>
+      </div>
+      <div class="title-content title7">
+        <div class="title-image"></div>
+        <div class="star">
+          <img src="./images/star.png" />
+        </div>
+        <p>Title 7</p>
+      </div>
+      <div class="title-content title8">
+        <div class="title-image"></div>
+        <div class="star">
+          <img src="./images/star.png" />
+        </div>
+        <p>Title 8</p>
+      </div>
+      <div class="title-content title9">
+        <div class="title-image"></div>
+        <div class="star">
+          <img src="./images/star.png" />
+        </div>
+        <p>Title 9</p>
+      </div>
+      <div class="title-content title10">
+        <div class="title-image"></div>
+        <div class="star">
+          <img src="./images/star.png" />
+        </div>
+        <p>Title 10</p>
+      </div>
+    </div>
+  </main> -->
+  <script>
+    const page = document.querySelector("#page");
+    const closeBtn = document.getElementById("close");
+    const menuIcon = document.getElementById("menu_icon");
+
+    closeBtn.addEventListener("click", closeMenu);
+    menuIcon.addEventListener("click", openMenu);
+
+    function openMenu() {
+        page.style.width = "40%";
+        closeBtn.style.display = "block";
+    }
+
+    function closeMenu() {
+        page.style.width = "0%";
+        closeBtn.style.display = "none";
+    }
+
+    function loadMore() {
+        if (!spots[n]) {
+          return;
+        }
+        let m = Math.min(n + 10, spots.length);
+        let bigboxContainerDiv = document.createElement("div");
+        bigboxContainerDiv.className = "bigbox-container";
+        bigboxContainerDiv.id = `container${n}`;
+        document
+          .querySelector("#bigbox-content")
+          .appendChild(bigboxContainerDiv);
+        for (let i = n; i < m; i++) {
+          let bigboxDiv = document.createElement("div");
+          let img = document.createElement("img");
+          let imgStar = document.createElement("img");
+          let p = document.createElement("p");
+          bigboxDiv.className = "bigbox";
+          imgStar.src = "./images/star.png"; 
+          imgStar.className = "star-image";
+          img.src = spots[i].imgUrl;
+          p.textContent = spots[i].title;
+          bigboxContainerDiv.appendChild(bigboxDiv);
+          bigboxDiv.appendChild(img);
+          bigboxDiv.appendChild(imgStar);
+          bigboxDiv.appendChild(p);
+          n++;
+        }
+      }
+      const spots = [];
+      // current index of spot data
+      let n = 0;
+      fetch(
+        "https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment-1"
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          for (let spot of data["data"]["results"]) {
+            let imgUrl = "https" + spot["filelist"].split("https")[1];
+            spots.push({ title: spot["stitle"], imgUrl: imgUrl });
+          }
+          for (let i = n; i < 3; i++) {
+            let div = document.createElement("div");
+            let img = document.createElement("img");
+            let p = document.createElement("p");
+            div.className = "smallbox";
+            img.src = spots[i]["imgUrl"];
+            p.textContent = spots[i]["title"];
+            // div.textContent = `<img src=${spots[i]['imgUrl']} /><p>${spots[i]['title']}</p>`;
+            document.querySelector(".smallbox-container").appendChild(div);
+            div.appendChild(img);
+            div.appendChild(p);
+            n++;
+          }
+          // for (let i = n; i < 13; i++) {
+          //   let div = document.createElement("div");
+          //   let img = document.createElement("img");
+          //   let img2 = document.createElement("img");
+          //   let p = document.createElement("p");
+          //   div.className = "bigbox";
+          //   img.src = spots[i]["imgUrl"];
+          //   // img2.src = "./images/star.svg";
+          //   // img2.id = "star";
+          //   p.textContent = spots[i]["title"];
+          //   document.querySelector(".bigbox-container").appendChild(div);
+          //   div.appendChild(img);
+          //   div.appendChild(img2);
+          //   div.appendChild(p);
+          //   n++;
+          // }
+          for (let i = n; i < 13; i++) {
+    let div = document.createElement("div");
+    let p = document.createElement("p");
+    // let img = document.createElement("img");
+    let imgStar = document.createElement("img"); // 新增星星圖片元素
+    div.className = "bigbox";
+    div.style.backgroundImage = `url(${spots[i]["imgUrl"]})`; // 修改這一行
+    // img.src = spots[i]["imgUrl"];
+    imgStar.src = "./images/star.png";
+    imgStar.style.position = "absolute";
+    imgStar.style.top = "5px";
+    imgStar.style.right = "5px"
+    imgStar.style.width = "20px"; // 設置星星圖示的寬度
+    imgStar.style.height = "20px";
+    //img2.src = "./images/star.png";
+    //img2.id = "star";
+    p.textContent = spots[i]["title"];
+    document.querySelector(".bigbox-container").appendChild(div);
+    // bigboxContainerDiv.appendChild(bigboxDiv);
+
+    div.appendChild(imgStar);
+    // div.appendChild(img);
+    div.appendChild(p);
+    //div.appendChild(img2);
+    n++;
+}
+
+        });
+  </script>
+</body>
+</html>
+
