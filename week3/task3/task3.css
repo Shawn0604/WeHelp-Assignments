@@ -316,20 +316,48 @@ nav {
 .title9 { grid-area: title9; }
 .title10 { grid-area: title10; }
 
-@media  (max-width: 1200px) {
+/* 媒體查詢調整 for <1200px */
+@media (max-width: 1200px) {
+    .bigbox-container {
+        grid-template-columns: repeat(4, 1fr); /* 四個一行，平均分配 */
+        width: 90vw; /* 調整寬度為視窗的90% */
+    }
+    
+    .smallbox-container {
+        grid-template-columns: repeat(2, 1fr); /* 修正為兩個一行 */
+        grid-gap: 20px; /* 確保間隔一致 */
+        width: 90vw; /* 確保容器寬度適當調整 */
+    }
+    .bigbox {
+        height: 150px; /* 確保高度足夠 */
+        width: auto; /* 寬度自動調整以適應容器 */
+    }
+    
+    .smallbox-container .smallbox:nth-child(3) {
+        grid-column: 1 / -1; /* 讓第三個元素佔滿整行 */
+    }
+
     #content-container {
-        width: 90vw;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-areas:
-            "promotion1 promotion1 promotion2 promotion2"
-            "promotion3 promotion3 promotion3 promotion3"
-            "title1 title2 title3 title4"
-            "title5 title6 title7 title8"
-            "title9 title9 title10 title10";
+        width: 90vw; /* 調整內容容器的寬度 */
     }
 }
 
+/* 媒體查詢調整 for <600px */
 @media (max-width: 600px) {
+    .bigbox-container {
+        grid-template-columns: repeat(1, 1fr); /* 四個一行，平均分配 */
+        width: 90vw; /* 調整寬度為視窗的90% */
+    }
+    
+    .smallbox-container {
+        grid-template-columns: repeat(1, 1fr); /* 修正為兩個一行 */
+        grid-gap: 20px; /* 確保間隔一致 */
+        width: 90vw; /* 確保容器寬度適當調整 */
+    }
+    .bigbox {
+        height: 150px; /* 確保高度足夠 */
+        width: auto; /* 寬度自動調整以適應容器 */
+    }
     #menu-items {
         flex-direction: column;
         align-items: center;
@@ -348,25 +376,6 @@ nav {
         margin: 0;
         margin-top: 20px;
     }
-
-    #content-container {
-        width: 90vw;
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "promotion1"
-            "promotion2"
-            "promotion3"
-            "title1"
-            "title2"
-            "title3"
-            "title4"
-            "title5"
-            "title6"
-            "title7"
-            "title8"
-            "title9"
-            "title10";
-    }
     .menu {
         display: none;
       }
@@ -377,9 +386,9 @@ nav {
         margin-right: 10px;
         cursor: pointer;
     }
-    
-      .page {
-        display: flex;
-      }
-}
 
+    #content-container {
+        width: 90vw; /* 調整內容容器的寬度 */
+    }
+
+}
