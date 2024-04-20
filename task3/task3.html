@@ -146,14 +146,18 @@
     menuIcon.addEventListener("click", openMenu);
 
     function openMenu() {
-        page.style.width = "40%";
-        closeBtn.style.display = "block";
-    }
+    page.style.width = "40%";
+    page.style.display = "flex";  // 让.page元素可见
+    closeBtn.style.display = "block";
+}
 
-    function closeMenu() {
-        page.style.width = "0%";
-        closeBtn.style.display = "none";
-    }
+
+function closeMenu() {
+    page.style.width = "0%";
+    page.style.display = "none";  // 再次隐藏.page元素
+    closeBtn.style.display = "none";
+}
+
 
     function loadMore() {
         if (!spots[n]) {
