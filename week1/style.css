@@ -24,7 +24,7 @@ header {
     height: 250px;
     align-items: center;
     justify-content: center;
-    background-color: rgb(182, 223, 240);
+    background-color: rgb(190, 227, 243);
 }
 
 #header-title {
@@ -46,7 +46,7 @@ header {
 
 #header-message {
     margin-bottom: 35px;
-    background-color: rgb(168, 210, 226);
+    background-color: rgb(180, 222, 239);
     height: 250px;
     display: flex;
     justify-content: center;

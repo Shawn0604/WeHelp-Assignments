@@ -22,7 +22,7 @@
 .smallbox {
     display: flex;
     align-items: center;
-    background-color: lightskyblue;
+    background-color: rgb(176, 216, 239);
     /* margin-bottom: 20px; 將間距應用於 .smallbox */
 }
 
@@ -71,7 +71,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    background-color: rgb(185, 243, 243);
+    background-color: rgb(165, 215, 241);
     opacity: 0.7;
     margin: 0;
     text-align: center;
@@ -127,7 +127,7 @@ header {
     height: 250px;
     align-items: center;
     justify-content: center;
-    background-color: rgb(182, 223, 240);
+    background-color: rgb(175, 225, 246);
 }
 
 #header-title {
@@ -149,7 +149,7 @@ header {
 
 #header-message {
     margin-bottom: 40px;
-    background-color: rgb(168, 210, 226);
+    background-color: rgb(181, 227, 245);
     height: 250px;
     display: flex;
     justify-content: center;
@@ -184,7 +184,7 @@ nav {
     align-items: center;
     height: 50px;
     width: 100%;
-    background-color: rgb(173, 222, 242);
+    background-color: rgb(160, 193, 206);
 }
 
 .promo-image {
@@ -205,7 +205,7 @@ nav {
     height: 50px;
     width: 32%;
     margin: 10px;
-    background-color: rgb(178, 235, 235);
+    background-color: rgb(175, 219, 219);
 }
 
 .title-content {
@@ -237,7 +237,7 @@ nav {
 
 .title-content p {
     width: 100%;
-    background-color: rgba(89, 178, 190, 0.789);
+    background-color: rgba(177, 227, 234, 0.789);
     text-align: center;
     padding: 5px 0;
     position: absolute;
