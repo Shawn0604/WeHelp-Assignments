@@ -28,9 +28,9 @@ def calculator(request: Request, number: int):
     return templates.TemplateResponse("calculator.html", {"request": request, "result": result})
 
 
-@app.get("/success", response_class=HTMLResponse)
+@app.get("/member", response_class=HTMLResponse)
 def get_success(request: Request):
-    if not request.session.get('SIGNED_IN'):
+    if not request.session.get('signin'):
         raise HTTPException(status_code=403, detail="尚未登錄")
     return templates.TemplateResponse("success.html", {"request": request})
 
@@ -41,15 +41,16 @@ def get_failure(request: Request, message: str = None):
 
 
 @app.post("/signin", response_class=RedirectResponse)
-def sign_in(request: Request, username: str = Form(...), password: str = Form(...)):
+def sign_in(request: Request, username: str = Form(None), password: str = Form(None)):
+    if not (username and password):
+        return RedirectResponse("/error?message=請輸入帳號、密碼", status_code=302)
     if username == "test" and password == "test":
-        request.session['SIGNED_IN'] = True
-        return RedirectResponse("/success", status_code=302)
-    else:
-        return RedirectResponse("/error?message=帳號或密碼錯誤", status_code=302)
+        request.session['signin'] = True
+        return RedirectResponse("/member", status_code=302)
+    return RedirectResponse("/error?message=帳號、或密碼輸入錯誤", status_code=302)
 
 
 @app.get("/signout", response_class=RedirectResponse)
 def sign_out(request: Request):
-    request.session.pop('SIGNED_IN', None)
+    request.session.pop('signin', None)
     return RedirectResponse("/", status_code=302)
