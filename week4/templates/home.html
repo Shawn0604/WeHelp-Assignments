@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Week4</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>會員登入</title>
+  <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="content">
+    <div class="container">
+      <div class="title">
+        <p>歡迎光臨，請輸入帳號密碼</p>
+      </div>
+      <div class="content">
+        登入系統
+      </div>
+      <div class="content">
+        <label>帳號</label>
+        <input type="text" id="username"/>
+      </div>
+      <div class="content">
+        <label>密碼</label>
+        <input type="password" id="password"/>
+      </div>
+      <div class="content">
+        <label>同意條款</label>
+        <input type="checkbox" id="check"/>
+      </div>
+      <div class="content">
+        <button type="submit" onclick="login()">登入</button>
+      </div>
+      
+      <div class="content">
+        計算正整數的平方
+      </div>
+      <div class="content">
+        <label>正整數</label>
+        <input type="text" id="number"/>
+      </div>
+      <div class="content">
+        <button type="submit" onclick="calculate()">計算</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    function login() {
+      const username = document.querySelector("#username").value;
+            const password = document.querySelector("#password").value;
+            const check = document.querySelector("#check");
+            if (!check.checked) {
+                return alert("請先勾選同意條款");
+            }
+            const formData = new FormData();
+            formData.append("username", username);
+            formData.append("password", password);
+
+      fetch("http://127.0.0.1:8000/signin", {
+        method: "POST",
+        body: formData,
+        redirect: "follow"
+      })
+      .then(res => {
+        if (res.redirected) {
+          window.location.href = res.url;  
+          return;
+        } else {
+          return res.text();  
+        }
+      });
+    }
+
+    function calculate() {
+      const number = document.querySelector("#number").value;
+
+      if (Math.floor(number) == number && number > 0){
+        window.location.href = `/calculate/${number}`;
+      } else {
+        alert("請輸入一個正整數");
+      }
+    }
+  </script>
+</body>
+</html>
+
