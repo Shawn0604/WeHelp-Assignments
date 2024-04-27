@@ -31,8 +31,9 @@ def calculator(request: Request, number: int):
 @app.get("/member", response_class=HTMLResponse)
 def get_success(request: Request):
     if not request.session.get('signin'):
-        raise HTTPException(status_code=403, detail="尚未登錄")
+        return RedirectResponse(url="/", status_code=302)
     return templates.TemplateResponse("success.html", {"request": request})
+
 
 
 @app.get("/error", response_class=HTMLResponse)
