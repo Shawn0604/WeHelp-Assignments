@@ -22,7 +22,7 @@ def get_home(request: Request):
     return templates.TemplateResponse("home.html", {"request": request})
 
 
-@app.get("/calculate/{number}", response_class=HTMLResponse)
+@app.get("/square/{number}", response_class=HTMLResponse)
 def calculator(request: Request, number: int):
     result = number ** 2
     return templates.TemplateResponse("calculator.html", {"request": request, "result": result})
