@@ -3,4 +3,4 @@
 ```mysql
 CREATE DATABASE website;
 ```
-<img src="./image/1-1.JPG">1-1</img>
+<img src="./image/1-1.JPG"></img>
