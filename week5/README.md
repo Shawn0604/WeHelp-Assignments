@@ -165,3 +165,5 @@
     GROUP BY member.username;
     ```
     <img src="./image/5-5.JPG"></img>
+
+C:\Program Files\MySQL\MySQL Server 8.4\bin>mysqldump -u root -p website > data.sql
