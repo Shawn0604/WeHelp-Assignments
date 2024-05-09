@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Week4</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>會員登入</title>
+  <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="content">
+    <div class="container">
+      <div class="title">
+        <p>歡迎光臨，請輸入帳號密碼</p>
+      </div>
+      <form action="/signup" method="POST" id="signupForm">
+        <h4>註冊帳號</h4>
+        <div>
+          <label>姓名：</label>
+          <input type="text" name="name" id="signupName"/>
+        </div>
+        <div>
+          <label>帳號：</label>
+          <input type="text" name="username" id="signupUsername"/>
+        </div>
+        <div>
+          <label>密碼：</label>
+          <input type="password" name="password" id="signupPassword"/>
+        </div>
+        <div>
+          <button type="button" onclick="submitForm('signupForm')">註冊</button>
+        </div>
+      </form>
+
+      <form action="/signin" method="POST" id="signinForm">
+        <h4>登入系統</h4>
+        <div>
+          <label>帳號：</label>
+          <input type="text" name="username" id="signinUsername"/>
+        </div>
+        <div>
+          <label>密碼：</label>
+          <input type="password" name="password" id="signinPassword"/>
+        </div>
+        <div>
+          <button type="button" onclick="submitForm('signinForm')">登入</button>
+        </div>
+      </form>
+      <!-- <div class="content">
+        計算正整數的平方
+      </div>
+      <div class="content">
+        <label>正整數</label>
+        <input type="text" id="number"/>
+      </div>
+      <div class="content">
+        <button type="submit" onclick="calculate()">計算</button>
+      </div> -->
+    </div>
+  </div>
+  <script>
+    function submitForm(formId) {
+      document.getElementById(formId).submit();
+    }
+
+    // function calculate() {
+    //   const number = document.querySelector("#number").value;
+    //   if (Math.floor(number) == number && number > 0){
+    //     window.location.href = `/square/${number}`;
+    //   } else {
+    //     alert("請輸入一個正整數");
+    //   }
+    // }
+  </script>
+</body>
+</html>
+
