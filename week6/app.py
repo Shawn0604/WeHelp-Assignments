@@ -37,7 +37,6 @@ def get_success(request: Request):
     if not request.session.get('signin'):
         return RedirectResponse(url="/", status_code=302)
     
-    # 使用 JOIN 查询来获取 message 和对应的 member name
     cursor.execute("""
         SELECT m.content, mb.name 
         FROM message m
@@ -82,21 +81,15 @@ def sign_up(request: Request, name: str = Form(), username: str = Form(), passwo
 def sign_in(request: Request, username: str = Form(None), password: str = Form(None)):
     if not (username and password):
         return RedirectResponse("/error?message=請輸入帳號、密碼", status_code=302)
-
-    # 修改SQL查询以同时获取密码、id、name 和 username
     cursor.execute("SELECT id, name, username, password FROM member WHERE username = %s", (username,))
     user_record = cursor.fetchone()
-
-    # 检查用户记录是否存在并且密码匹配
     if user_record and user_record[3] == password:
-        # 用户验证成功，设置会话变量
         request.session['signin'] = True
-        request.session['ID'] = user_record[0]  # 保存用户的 ID
-        request.session['NAME'] = user_record[1]  # 保存用户的名称
-        request.session['USERNAME'] = user_record[2]  # 保存用户的用户名
+        request.session['ID'] = user_record[0]  
+        request.session['NAME'] = user_record[1] 
+        request.session['USERNAME'] = user_record[2]  
         return RedirectResponse("/member", status_code=302)
     else:
-        # 如果密码不匹配或用户不存在，重定向到错误页面
         return RedirectResponse("/error?message=帳號或密碼輸入錯誤", status_code=302)
 
 @app.get("/signout", response_class=RedirectResponse)
@@ -107,7 +100,7 @@ def sign_out(request: Request):
 
 @app.post("/createMessage")
 async def create_message(request: Request, content: str = Form(...)):
-    print("Session data:", request.session)  # 调试输出会话中的所有数据
+    print("Session data:", request.session) 
     member_id = request.session.get('ID')
     # if not member_id:
     #     return RedirectResponse("/error?message=未登入系统", status_code=302)
