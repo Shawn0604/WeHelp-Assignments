@@ -38,11 +38,14 @@ def get_home(request: Request):
 #     return templates.TemplateResponse("calculator.html", {"request": request, "result": result})
 
 
+
 @app.get("/member", response_class=HTMLResponse)
 def get_success(request: Request):
     if not request.session.get('signin'):
         return RedirectResponse(url="/", status_code=302)
-    return templates.TemplateResponse("success.html", {"request": request})
+    user_name = request.session.get('name', '會員')  # 如果找不到名字，使用默認值「會員」
+    return templates.TemplateResponse("success.html", {"request": request, "user_name": user_name})
+
 
 
 
