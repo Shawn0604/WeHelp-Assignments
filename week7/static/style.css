@@ -1,0 +1,71 @@
+/* 基本的CSS重設 */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 設定全體字體 */
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+  background-color: #f4f4f4;
+  line-height: 1.6;
+}
+
+/* 容器設定，增加內間距並置中顯示 */
+.container {
+  width: 60%;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+
+/* 標題樣式 */
+.title p {
+  color: #0056b3;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.header{
+  height: 9rem;
+  background-color: #23303e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 3rem;
+  width: 100%
+}
+
+/* 表單控件樣式 */
+.content {
+  margin: 10px 0;
+}
+
+input[type="text"], input[type="password"] {
+  width: calc(100% - 22px);
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="submit"], button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #0056b3;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover, button:hover {
+  background-color: #004494;
+}
